@@ -261,4 +261,22 @@
     }
   });
 
-})()
+})();
+
+function AlertFunction(email) {
+  document.execCommand("copy");
+  var alertBox = document.getElementById("alertBox");
+  alertBox.innerHTML = 'Matn nusxalandi: ' + email; // Emailni alertga qo'shib qo'yish
+  alertBox.style.display = 'block';
+
+  var textarea = document.createElement("textarea");
+  textarea.value = email;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+
+  setTimeout(function(){
+      alertBox.style.display = 'none';
+  }, 2000); 
+}
